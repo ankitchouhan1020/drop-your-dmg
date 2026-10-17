@@ -1,0 +1,50 @@
+name: Bug report
+description: The skill, an example, a check or a DMG workflow did something wrong.
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is the problem?
+      options:
+        - Product inspection
+        - Concept generation
+        - Preview or background artwork
+        - create-dmg build
+        - Verification
+        - Example
+        - Installation
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened?
+      description: Include the prompt and exact failing step. Remove private paths and credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Relevant output
+      description: Paste sanitized command output.
+      render: shell
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: macOS version, agent, create-dmg version
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Add the concept preview or actual Finder window. Remove proprietary material when necessary.

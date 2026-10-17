@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="772" viewBox="0 0 660 386" role="img">
+<defs>
+  <linearGradient id="sb-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#29145f"/><stop offset=".52" stop-color="#5e37c8"/><stop offset="1" stop-color="#a653d0"/></linearGradient>
+  <radialGradient id="sb-glow"><stop stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <filter id="sb-shadow"><feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#160631" flood-opacity=".35"/></filter>
+</defs>
+<rect width="660" height="386" fill="url(#sb-bg)"/>
+<circle cx="170" cy="208" r="210" fill="url(#sb-glow)" opacity=".34"/>
+<circle cx="545" cy="305" r="250" fill="url(#sb-glow)" opacity=".24"/>
+<path d="M-20 330 C130 248 167 89 334 68 C473 50 540 145 696 78" fill="none" stroke="#fff" stroke-width="1" opacity=".14"/>
+<path d="M-25 350 C142 266 188 110 346 91 C489 74 551 162 690 105" fill="none" stroke="#fff" stroke-width="1" opacity=".1"/>
+<rect x="28" y="28" width="604" height="330" rx="28" fill="#fff" fill-opacity=".09" stroke="#fff" stroke-opacity=".19" filter="url(#sb-shadow)"/>
+<text x="330" y="67" text-anchor="middle" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="21" font-weight="700">Make space for your ideas.</text>
+<text x="330" y="89" text-anchor="middle" fill="#fff" opacity=".67" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" letter-spacing="1.5">DRAG ORBIT NOTES TO APPLICATIONS</text>
+<path d="M227 211 C280 171 379 171 433 211" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".88"/>
+<path d="M421 200 L436 211 L420 220" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+<g fill="#fff"><circle cx="284" cy="181" r="2" opacity=".45"/><circle cx="330" cy="173" r="3" opacity=".72"/><circle cx="377" cy="183" r="2" opacity=".45"/></g>
+</svg>

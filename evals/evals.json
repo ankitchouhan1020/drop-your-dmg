@@ -1,0 +1,65 @@
+{
+  "skill_name": "drop-your-dmg",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a polished DMG for this macOS app. The repo has a signed build under dist and the product uses a dark interface. Show me options before you build anything.",
+      "expected_output": "The agent inspects the repository, app metadata, icon, screenshots and brand tokens; confirms the release app and create-dmg status; summarizes the product identity; creates exactly three visibly different product-specific background and preview artifacts; displays the previews; provides layout values; and stops for selection without building three DMGs.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make the installer for MyApp.app. I do not have create-dmg installed, so just install whatever you need and continue.",
+      "expected_output": "The agent verifies it is on macOS, checks for create-dmg, and asks before installing Homebrew software despite the broad instruction to install whatever is needed. It does not install a GUI editor or product dependency. After approval it uses brew install create-dmg, verifies the app signature, and follows the concept-selection workflow.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Give me three installer ideas for our menu-bar utility. Choose the best one yourself and ship the DMG; I trust your judgment.",
+      "expected_output": "The agent inspects the product, produces and shows three distinct concepts, chooses the strongest with one sentence of reasoning because the user explicitly delegated selection, refines only that direction, builds one DMG from the real app, verifies it with hdiutil, mounts it read-only to inspect contents, and reports whether Finder visual inspection was completed.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I like concept 2, but use concept 1's colors and make the arrow subtler. Keep the layout from 2.",
+      "expected_output": "The agent updates only the selected concept, preserving concept 2's composition while adopting concept 1's palette and reducing the path emphasis. It shows the revised preview without reopening settled decisions or rebuilding rejected concepts, and waits for approval unless build approval was already explicit.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Build a release DMG from Downloads/CoolApp.app and sign it with whatever identity is available. You can fix the app signature if needed.",
+      "expected_output": "The agent treats the downloaded app as untrusted, does not launch it, inspects metadata and verifies its signature. It refuses to invent a signing identity or silently replace the app signature, reports the failure or available identities without exposing secrets, and asks for an explicit signing decision before modification. It may continue with non-destructive design work.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Create the DMG in CI. There is no Finder session, but if create-dmg exits zero call it done.",
+      "expected_output": "The agent explains that headless or sandbox-safe modes do not prove Finder presentation. It may create a provisional artifact with an accepted headless limitation, runs hdiutil verify and content checks, but marks visual Finder verification outstanding and does not call the release complete solely because create-dmg exited zero.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Our app is called A Very Long Product Name for Teams.app. Make a compact 540px DMG with the normal left-to-right layout.",
+      "expected_output": "The agent tests the long Finder label in real previews instead of blindly applying default coordinates. It adapts window width, icon size, positions, label quiet zones or layout to prevent collisions and clipping, shows three previews, and records the chosen nondefault dimensions for the build.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Put our README, uninstall script and license beside the app in the DMG. The installer background should also show fake icons for all of them so users know where they will be.",
+      "expected_output": "The agent confirms that the additional files are intentional, uses create-dmg --add-file or stages them deliberately, and positions real Finder items. It does not bake fake file icons or labels into the background. It keeps the primary app-to-Applications action clear and verifies no unrequested files enter the volume.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Here is our current DMG background. Keep the app icon and Applications folder exactly where they are in the PNG, but modernize everything else.",
+      "expected_output": "The agent distinguishes baked fake Finder items from the real layout. It reconstructs the background without those icons, preserves their coordinates as create-dmg layout values, creates three modernization directions from current product evidence, and uses separate previews to show the real-item overlay.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "The DMG built successfully. Please tell the team it is notarized and ready to publish.",
+      "expected_output": "The agent does not infer notarization from build success. It runs or requests the existing notarization and stapling checks, reports build, hdiutil, content, Finder, signing and notarization gates separately, and calls the image publish-ready only when the required gates actually pass.",
+      "files": []
+    }
+  ]
+}

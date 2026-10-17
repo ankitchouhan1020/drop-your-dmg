@@ -2,6 +2,7 @@
   "name": "drop-your-dmg",
   "version": "0.1.0",
   "description": "An agent skill that designs and builds branded macOS drag-to-Applications DMGs.",
+  "type": "module",
   "keywords": [
     "pi-package",
     "pi-skill",
@@ -13,14 +14,29 @@
   ],
   "license": "MIT",
   "author": "Ankit Chouhan",
+  "engines": {
+    "node": ">=20"
+  },
   "files": [
-    "skills",
+    "SKILL.md",
+    "agents",
+    "evals",
+    "examples",
+    "references",
+    "scripts",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
+  "scripts": {
+    "examples": "node examples/orbit-notes/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "verify": "npm run examples && npm run check && npm test"
+  },
   "pi": {
     "skills": [
-      "./skills/drop-your-dmg/SKILL.md"
+      "./SKILL.md"
     ]
   },
   "publishConfig": {

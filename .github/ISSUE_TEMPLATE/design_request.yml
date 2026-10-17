@@ -1,0 +1,39 @@
+name: Design or workflow request
+description: Request an example, design rule, packaging case or verification check.
+title: "Request: "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What should change?
+      options:
+        - New example product
+        - Design guidance
+        - Packaging workflow
+        - Verification check
+        - Agent compatibility
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case
+      description: Describe the product and the installer outcome that is difficult today.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Example or evidence
+      description: Add a sanitized prompt, screenshot or command when available.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the existing examples and issues.
+          required: true
+        - label: I removed private apps, assets, paths and credentials.
+          required: true
