@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join, resolve } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { parseFrontmatter, validateRepository, validateSvg } from "../scripts/check.mjs";
+import { parseFrontmatter, validateLocalReferences, validateRepository, validateSvg } from "../scripts/check.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -19,6 +20,17 @@ test("backgrounds and previews keep Finder content separate", () => {
   assert.deepEqual(validateSvg(`${base}</svg>`, false), []);
   assert.deepEqual(validateSvg(`${base}<g data-role="finder-item"/></svg>`, true), []);
   assert.match(validateSvg(`${base}<g data-role="finder-item"/></svg>`, false)[0], /background/);
+});
+
+test("broken local documentation references are rejected", () => {
+  const dir = mkdtempSync(join(tmpdir(), "drop-your-dmg-"));
+  const readme = join(dir, "README.md");
+  try {
+    writeFileSync(readme, '<img src="missing.svg">');
+    assert.deepEqual(validateLocalReferences(readme), ["broken local reference: missing.svg"]);
+  } finally {
+    rmSync(dir, { recursive: true });
+  }
 });
 
 test("repository architecture is valid", () => {

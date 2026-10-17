@@ -60,6 +60,7 @@ Check:
 - Applications alias and alias badge;
 - background crop and Retina sharpness;
 - icon-label contrast;
+- the lowest label clears Finder chrome and the bottom edge;
 - arrow or path alignment;
 - no clipped artwork;
 - no horizontal or vertical scrollbars;

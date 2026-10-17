@@ -1,31 +1,32 @@
-# Walkthrough: Orbit Notes
+# Walkthrough: Notion
 
-`examples/orbit-notes/` shows the concept stage for a fictional spatial notes app. It demonstrates the expected artifacts and review flow, not a reusable visual template.
+`examples/notion/` shows the concept stage for Notion. It demonstrates the expected artifacts and review flow, not an official installer or a reusable visual template.
 
 ## 1. Product read
 
-- **Purpose:** capture notes and connect them spatially.
-- **Audience:** designers, researchers and writers.
-- **Character:** calm, celestial, precise.
-- **Palette:** near-black, muted lavender, warm paper and cobalt.
-- **Motifs:** orbits, connected points, paper cards and paths.
-- **Avoid:** loud gaming neon, dense dashboards and generic productivity blue.
+- **Purpose:** combine documents, knowledge, projects and collaboration in one workspace.
+- **Audience:** individuals and teams organizing work and knowledge.
+- **Character:** clear, editorial, modular.
+- **Palette:** black, white and warm neutral gray.
+- **Motifs:** pages, blocks and the workspace sidebar.
+- **Selected cues:** one folded page, one block path or one sidebar edge.
+- **Avoid:** colorful gradients, dense editor replicas and ornamental productivity graphics.
 
 ## 2. Three directions
 
-### Quiet Orbit
+### Quiet Page
 
-A dark, restrained field carries the product's spatial metaphor through two orbit rings and a curved dotted path. It is the closest match to a dark product interface.
+A warm white field and one folded corner carry Notion’s page metaphor. The Finder items remain symmetrical and dominant.
 
-### Paper Trail
+### Block Path
 
-A warm editorial sheet turns installation into moving a note across a ruled workspace. It serves users who know the product from its writing experience rather than its dark UI.
+A dark field uses three quiet blocks as the installation path. The app begins lower and Applications finishes higher, making the composition distinct without adding noise.
 
-### Signal Bloom
+### Sidebar Shift
 
-A vivid violet field and translucent panel make the installer feel like a launch moment. It is the expressive option, with the product icon remaining the strongest object.
+A single pale sidebar anchors an asymmetric light field. The app begins higher and the destination finishes lower while both labels remain inside the safe zone.
 
-The layouts, materials and hierarchy differ. They are not palette variants.
+The fields, icon arrangements and product cues differ. They are not palette variants, and none is more decorative than the others.
 
 ## 3. Artifact separation
 
@@ -33,22 +34,20 @@ Each direction has:
 
 - `*-background.svg`: shipping artwork only;
 - `*-preview.svg`: the same artwork plus elements marked `data-role="finder-item"`;
-- a card in `orbit-notes.html`.
+- one card in `notion.html`.
 
-The background files never include the fake app icon, Applications folder or Finder labels.
+The Notion icon is embedded only in previews so `sips` can render them without resolving an external PNG. Background files never contain the app icon, Applications folder or Finder labels.
 
 ## 4. Selection
 
-A good presentation would say:
+Present only the three curated previews:
 
-1. **Quiet Orbit** — strongest match to the product UI.
-2. **Paper Trail** — warmer and more editorial.
-3. **Signal Bloom** — boldest launch experience.
+1. **Quiet Page** — calmest and most immediately Notion-like.
+2. **Block Path** — strongest modular interpretation.
+3. **Sidebar Shift** — clearest asymmetric alternative.
 
-Then stop and ask for one direction. If the user chooses Quiet Orbit but asks for Paper Trail's typography, revise Quiet Orbit only.
+Then stop and ask for one direction. If the user combines ideas, revise only the selected direction and show one updated preview.
 
 ## 5. Build
 
-The example has no real app, so it does not ship a fake DMG. With an actual app, render the selected background using `sips`, run the command in `references/build.md`, and complete every check in `references/verify.md`.
-
-This is deliberate: examples may demonstrate design artifacts, but only a real signed app can produce a release artifact.
+The example has no release app, so it does not ship a fake DMG. With an actual app, render the approved background, follow `references/build.md`, and complete every check in `references/verify.md`.

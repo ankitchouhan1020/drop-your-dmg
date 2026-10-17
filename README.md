@@ -38,18 +38,18 @@ The final build requires macOS and `create-dmg`. The skill checks for it and ask
 
 ## Example
 
-The fictional Orbit Notes product gets three distinct directions from the same brief:
+Notion gets three curated directions from the same minimal brief:
 
 <table>
   <tr>
-    <td width="33%"><img src="examples/orbit-notes/quiet-orbit-preview.svg" alt="Quiet Orbit dark DMG preview"></td>
-    <td width="33%"><img src="examples/orbit-notes/paper-trail-preview.svg" alt="Paper Trail editorial DMG preview"></td>
-    <td width="33%"><img src="examples/orbit-notes/signal-bloom-preview.svg" alt="Signal Bloom violet DMG preview"></td>
+    <td width="33%"><img src="examples/notion/quiet-page-preview.svg" alt="Quiet Page Notion DMG preview"></td>
+    <td width="33%"><img src="examples/notion/block-path-preview.svg" alt="Block Path Notion DMG preview"></td>
+    <td width="33%"><img src="examples/notion/sidebar-shift-preview.svg" alt="Sidebar Shift Notion DMG preview"></td>
   </tr>
   <tr>
-    <td><b>Quiet Orbit</b><br><sub>Dark and restrained</sub></td>
-    <td><b>Paper Trail</b><br><sub>Warm and editorial</sub></td>
-    <td><b>Signal Bloom</b><br><sub>Vivid and expressive</sub></td>
+    <td><b>Quiet Page</b><br><sub>Calm and symmetrical</sub></td>
+    <td><b>Block Path</b><br><sub>Dark and modular</sub></td>
+    <td><b>Sidebar Shift</b><br><sub>Light and asymmetric</sub></td>
   </tr>
 </table>
 
@@ -57,7 +57,7 @@ Rebuild and open the contact sheet:
 
 ```sh
 npm run examples
-open examples/orbit-notes/orbit-notes.html
+open examples/notion/notion.html
 ```
 
 ## What it produces
@@ -101,7 +101,7 @@ The complete instructions are in [`SKILL.md`](SKILL.md). Focused guidance lives 
 ├── evals/
 │   └── evals.json
 ├── examples/
-│   └── orbit-notes/
+│   └── notion/
 ├── references/
 │   ├── build.md
 │   ├── design.md

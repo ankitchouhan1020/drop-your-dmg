@@ -29,13 +29,15 @@ Record these values before building:
 | App filename | `Product.app` |
 | Volume name | `Product` |
 | Background PNG | `installer/background@2x.png` |
-| Window size | `660 386` |
+| Outer window size | `660 386` |
 | Icon size | `112` |
-| App position | `155 210` |
-| Applications position | `505 210` |
+| App position | `155 200` |
+| Applications position | `505 200` |
 | Output | `dist/Product.dmg` |
 
 Use the exact app filename in both `--icon` and `--hide-extension`.
+
+`--window-size` sets the outer Finder window. Finder chrome reduces the visible content area by an OS-dependent amount, so artwork dimensions do not guarantee that low icons or labels remain visible. Keep labels above a 52 point bottom safe zone and treat all coordinates as starting values until the mounted Finder window is inspected.
 
 ## Signature gate
 
@@ -69,7 +71,9 @@ mkdir -p "$work/staging"
 ditto "/path/to/Product.app" "$work/staging/Product.app"
 ```
 
-Do not stage installer source, previews, screenshots or secrets.
+Do not stage installer source, previews, screenshots or secrets. The trap removes temporary staging on success, failure or interruption.
+
+After verification, remove rejected generations, preview experiments, superseded or renamed artifacts, test DMGs and intermediate exports created by the workflow. Keep only final delivery artifacts and never delete pre-existing or user-owned files.
 
 ## create-dmg
 
@@ -80,9 +84,9 @@ create-dmg \
   --background "/absolute/path/to/background@2x.png" \
   --window-size 660 386 \
   --icon-size 112 \
-  --icon "Product.app" 155 210 \
+  --icon "Product.app" 155 200 \
   --hide-extension "Product.app" \
-  --app-drop-link 505 210 \
+  --app-drop-link 505 200 \
   "/absolute/path/to/Product.dmg" \
   "$work/staging"
 ```

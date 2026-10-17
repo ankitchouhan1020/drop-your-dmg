@@ -37,13 +37,19 @@ Keep searches bounded. Do not crawl dependency caches or the user's whole home d
 
 ## App inspection
 
-Read metadata without launching the app:
+Read only the metadata needed for design and packaging without launching the app:
 
 ```sh
-plutil -p "/path/to/Product.app/Contents/Info.plist"
+plist="/path/to/Product.app/Contents/Info.plist"
+for key in CFBundleIdentifier CFBundleShortVersionString CFBundleVersion CFBundleIconFile LSMinimumSystemVersion; do
+  value="$(plutil -extract "$key" raw -o - "$plist" 2>/dev/null || true)"
+  test -z "$value" || printf '%s: %s\n' "$key" "$value"
+done
 codesign -dvv "/path/to/Product.app" 2>&1
 codesign --verify --deep --strict "/path/to/Product.app"
 ```
+
+Do not dump the entire `Info.plist`; apps may include unrelated configuration or sensitive custom fields.
 
 Find the icon filename from `CFBundleIconFile` or the asset catalog. Convert an `.icns` preview with:
 
@@ -63,6 +69,7 @@ Before concepts, write a compact brief:
 - **Palette:** 2–4 useful colors.
 - **Typography:** system, branded, editorial, technical, playful, and so on.
 - **Motifs:** shapes or visual behaviors worth carrying into the installer.
+- **Selected cues:** one evidenced cue per concept; do not combine them all.
 - **Avoid:** visual choices that would contradict the product.
 - **Release input:** exact app path and signature status.
 

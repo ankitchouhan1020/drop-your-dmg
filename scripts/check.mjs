@@ -22,11 +22,24 @@ export function validateSvg(svg, preview) {
   return errors;
 }
 
+export function validateLocalReferences(file) {
+  const text = readFileSync(file, "utf8");
+  const errors = [];
+  for (const match of text.matchAll(/(?:src|href)=["']([^"']+)["']|\[[^\]]*\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/g)) {
+    const reference = match[1] ?? match[2];
+    if (/^[a-z][a-z0-9+.-]*:/i.test(reference) || reference.startsWith("#")) continue;
+    const path = reference.split(/[?#]/, 1)[0];
+    if (!existsSync(resolve(dirname(file), decodeURIComponent(path)))) errors.push(`broken local reference: ${path}`);
+  }
+  return errors;
+}
+
 export function validateRepository(root) {
   const errors = [];
   const skillPath = join(root, "SKILL.md");
   if (!existsSync(skillPath)) return ["SKILL.md is missing"];
   const skill = readFileSync(skillPath, "utf8");
+  for (const error of validateLocalReferences(join(root, "README.md"))) errors.push(`README.md: ${error}`);
   const frontmatter = parseFrontmatter(skill);
   if (frontmatter.name !== "drop-your-dmg") errors.push("skill name must be drop-your-dmg");
   if (!frontmatter.description) errors.push("skill description is missing");
@@ -62,7 +75,13 @@ export function validateRepository(root) {
     for (const required of ["README.md", "build.mjs"]) {
       if (!existsSync(join(dir, required))) errors.push(`examples/${entry.name}/${required} is missing`);
     }
-    for (const file of readdirSync(dir).filter((name) => name.endsWith("-background.svg") || name.endsWith("-preview.svg"))) {
+    for (const error of validateLocalReferences(join(dir, "README.md"))) errors.push(`examples/${entry.name}/README.md: ${error}`);
+    const artifacts = readdirSync(dir).filter((name) => name.endsWith("-background.svg") || name.endsWith("-preview.svg"));
+    if (artifacts.some((name) => name.startsWith("undefined-"))) errors.push(`examples/${entry.name} contains an undefined artifact`);
+    const backgrounds = artifacts.filter((name) => name.endsWith("-background.svg")).map((name) => name.replace("-background.svg", ""));
+    const previews = artifacts.filter((name) => name.endsWith("-preview.svg")).map((name) => name.replace("-preview.svg", ""));
+    if (backgrounds.sort().join() !== previews.sort().join()) errors.push(`examples/${entry.name} backgrounds and previews do not match`);
+    for (const file of artifacts) {
       for (const error of validateSvg(readFileSync(join(dir, file), "utf8"), file.endsWith("-preview.svg"))) {
         errors.push(`examples/${entry.name}/${file}: ${error}`);
       }

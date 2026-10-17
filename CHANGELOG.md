@@ -4,6 +4,13 @@ All notable changes to Drop Your DMG are recorded here. The format follows [Keep
 
 ## [Unreleased]
 
+### Changed
+
+- Established a minimal design doctrine with one product cue, quiet path treatment and curated client previews.
+- Replaced the fictional Orbit Notes example with three curated Notion directions using an official public icon asset.
+- Added safer metadata inspection, self-contained raster preview guidance, Finder chrome allowances, an approval gate and delivery cleanup.
+- Expanded evaluation and repository checks for the updated workflow and generated artifacts.
+
 ## [0.1.0] - 2026-10-17
 
 ### Added

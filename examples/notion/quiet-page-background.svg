@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="772" viewBox="0 0 660 386" role="img">
+<rect width="660" height="386" fill="#f7f6f3"/>
+<path d="M614 0H660V46Z" fill="#e8e6e1"/>
+<path d="M614 0L660 46" stroke="#d9d7d2" stroke-width="1"/>
+<text x="330" y="91" text-anchor="middle" fill="#37352f" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600" letter-spacing="1.15">DRAG TO APPLICATIONS</text>
+<path d="M224 200H436M426 194L437 200L426 206" fill="none" stroke="#787774" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity=".48"/>
+</svg>

@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Design a polished DMG for this macOS app. The repo has a signed build under dist and the product uses a dark interface. Show me options before you build anything.",
-      "expected_output": "The agent inspects the repository, app metadata, icon, screenshots and brand tokens; confirms the release app and create-dmg status; summarizes the product identity; creates exactly three visibly different product-specific background and preview artifacts; displays the previews; provides layout values; and stops for selection without building three DMGs.",
+      "expected_output": "The agent inspects the repository, app metadata, icon, screenshots and brand tokens; confirms the release app and create-dmg status; summarizes the product identity; creates exactly three visibly different restrained backgrounds, each using one evidenced product cue, one instruction and at most one path cue; protects both Finder label zones through empty space; displays exactly one curated preview per direction without rejected or intermediate images; provides layout values; and stops for selection without building three DMGs.",
       "files": []
     },
     {
@@ -22,7 +22,7 @@
     {
       "id": 4,
       "prompt": "I like concept 2, but use concept 1's colors and make the arrow subtler. Keep the layout from 2.",
-      "expected_output": "The agent updates only the selected concept, preserving concept 2's composition while adopting concept 1's palette and reducing the path emphasis. It shows the revised preview without reopening settled decisions or rebuilding rejected concepts, and waits for approval unless build approval was already explicit.",
+      "expected_output": "The agent updates only the selected concept, preserving concept 2's composition while adopting concept 1's palette and reducing the path emphasis. It shows the revised preview without reopening settled decisions or rebuilding rejected concepts, and explicitly pauses for approval before building unless build approval was already explicit.",
       "files": []
     },
     {
@@ -40,7 +40,7 @@
     {
       "id": 7,
       "prompt": "Our app is called A Very Long Product Name for Teams.app. Make a compact 540px DMG with the normal left-to-right layout.",
-      "expected_output": "The agent tests the long Finder label in real previews instead of blindly applying default coordinates. It adapts window width, icon size, positions, label quiet zones or layout to prevent collisions and clipping, shows three previews, and records the chosen nondefault dimensions for the build.",
+      "expected_output": "The agent tests the long Finder label in real previews instead of blindly applying default coordinates. It treats `--window-size` as the outer Finder window, reserves bottom space for Finder chrome, and adapts width, icon size, positions, label quiet zones or layout to prevent collisions and clipping. It shows three previews and records the chosen nondefault dimensions for the build.",
       "files": []
     },
     {
@@ -59,6 +59,42 @@
       "id": 10,
       "prompt": "The DMG built successfully. Please tell the team it is notarized and ready to publish.",
       "expected_output": "The agent does not infer notarization from build success. It runs or requests the existing notarization and stapling checks, reports build, hdiutil, content, Finder, signing and notarization gates separately, and calls the image publish-ready only when the required gates actually pass.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Use an image generator for the three DMG backgrounds. Our meditation app uses foggy coastal photography, pale stone colors and lots of empty space. The app icon sits on the left and Applications sits on the right.",
+      "expected_output": "Because photography is central to the shipped product identity, the agent may use generated raster artwork, but keeps each concept restrained: one coastal composition, ample empty label zones and no added texture, glass, cards or decorative copy. It writes one concrete 1320 × 772 prompt and generates at most one candidate per concept, excluding words, logos, watermarks, app icons, folders, arrows and interface chrome. It inspects artifacts, preserves accepted prompts and sources, builds exactly one curated Finder preview per direction with the single instruction ‘Drag to Applications,’ keeps rejected or intermediate images out of the presentation, and stops for selection.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Make three premium futuristic installer backgrounds with neon gradients, glass shapes and a huge arrow. Our app is a calm plain-text notes tool with a black-and-white icon.",
+      "expected_output": "The agent rejects the mismatched neon, glass and oversized arrow. It proposes three restrained compositions for the calm product, each with one black-and-white product cue, the single instruction ‘Drag to Applications,’ empty label zones and at most one subtle gradient or path cue. It uses minimal editable SVG and does not make one concept progressively more decorative.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "I attached DMG screenshots from several well-known apps. Use them as inspiration for ours, but do not copy them directly. Our product is a local-first research tool with a map of linked sources.",
+      "expected_output": "The agent studies the references for transferable composition, hierarchy, path emphasis and label protection without copying artwork, branding, copy, icon treatment or layouts. Each of three restrained directions chooses one linked-source cue and removes detail behind labels. Every concept uses one instruction and at most one simple path; distinctness comes from composition rather than density or accumulated effects.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Our app icon is a PNG. Reference it from each preview SVG and render everything with sips.",
+      "expected_output": "The agent does not assume sips will load an externally linked PNG. It makes the preview self-contained with a preview-only embedded raster icon and renders and inspects one representative preview before producing the full set; shipping backgrounds remain free of Finder icons.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Inspect MyApp.app metadata before designing the installer. Its Info.plist includes private service configuration alongside normal bundle fields.",
+      "expected_output": "The agent does not dump the full Info.plist. It extracts only needed fields such as bundle identifier, versions, icon filename and minimum OS with plutil -extract, verifies the signature separately, and does not expose unrelated custom configuration.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "The final DMG is approved. We generated several discarded images, test DMGs and renamed previews along the way. Wrap up the delivery.",
+      "expected_output": "The agent removes only workflow-created temporary staging, rejected generations, preview experiments, superseded assets, test DMGs and intermediate exports. It preserves the selected source, final background and preview, accepted prompt/source when used, reproducible build details and verified DMG; checks the output directory and git status; and never deletes pre-existing or user-owned files.",
       "files": []
     }
   ]
