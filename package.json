@@ -1,0 +1,29 @@
+{
+  "name": "drop-your-dmg",
+  "version": "0.1.0",
+  "description": "An agent skill that designs and builds branded macOS drag-to-Applications DMGs.",
+  "keywords": [
+    "pi-package",
+    "pi-skill",
+    "agent-skill",
+    "macos",
+    "dmg",
+    "installer",
+    "create-dmg"
+  ],
+  "license": "MIT",
+  "author": "Ankit Chouhan",
+  "files": [
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "skills": [
+      "./skills/drop-your-dmg/SKILL.md"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
