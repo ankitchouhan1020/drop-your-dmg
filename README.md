@@ -12,14 +12,15 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/.github/assets/notion-installer.png" width="760" alt="A minimal Notion DMG installer preview with Notion on the left, Applications on the right and a quiet arrow between them.">
+  <img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/.github/assets/notion-installer.png" width="760" alt="A rendered Notion DMG concept preview with Notion on the left, Applications on the right and a quiet arrow between them."><br>
+  <sub>Unofficial Notion concept preview—not a mounted Finder capture.</sub>
 </p>
 
 ---
 
 Most DMG builders start with an empty canvas. Drop Your DMG starts with the product.
 
-It inspects the app, icon, screenshots, brand assets and release setup; creates three genuinely different installer directions; shows real previews; waits for a choice; refines one; then builds and verifies the disk image with [`create-dmg`](https://github.com/create-dmg/create-dmg).
+It inspects the app, icon, screenshots, brand assets and release setup; creates three genuinely different installer directions; shows rendered concept previews; waits for a choice; refines one; then builds and verifies the disk image with [`create-dmg`](https://github.com/create-dmg/create-dmg).
 
 ## Install
 
@@ -66,9 +67,9 @@ Notion gets three curated directions from the same minimal brief:
 
 <table>
   <tr>
-    <td width="33%"><img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/examples/notion/quiet-page-preview.svg" alt="Quiet Page Notion DMG preview"></td>
-    <td width="33%"><img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/examples/notion/block-path-preview.svg" alt="Block Path Notion DMG preview"></td>
-    <td width="33%"><img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/examples/notion/sidebar-shift-preview.svg" alt="Sidebar Shift Notion DMG preview"></td>
+    <td width="33%"><img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/examples/notion/quiet-page-preview.svg" alt="Quiet Page Notion DMG concept preview"></td>
+    <td width="33%"><img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/examples/notion/block-path-preview.svg" alt="Block Path Notion DMG concept preview"></td>
+    <td width="33%"><img src="https://raw.githubusercontent.com/ankitchouhan1020/drop-your-dmg/main/examples/notion/sidebar-shift-preview.svg" alt="Sidebar Shift Notion DMG concept preview"></td>
   </tr>
   <tr>
     <td><b>Quiet Page</b><br><sub>Calm and symmetrical</sub></td>

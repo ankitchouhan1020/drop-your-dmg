@@ -33,6 +33,17 @@ test("broken local documentation references are rejected", () => {
   }
 });
 
+test("generated concepts are comparable and accessible", () => {
+  const html = readFileSync(resolve(root, "examples/notion/notion.html"), "utf8");
+  const preview = readFileSync(resolve(root, "examples/notion/quiet-page-preview.svg"), "utf8");
+  const background = readFileSync(resolve(root, "examples/notion/quiet-page-background.svg"), "utf8");
+  assert.match(html, /grid-template-columns:repeat\(3/);
+  assert.equal((html.match(/<h2>/g) || []).length, 3);
+  assert.equal((html.match(/href="[^"]+-preview\.svg"/g) || []).length, 3);
+  assert.match(preview, /<title>Quiet Page Notion DMG concept preview<\/title>/);
+  assert.doesNotMatch(background, /role="img"/);
+});
+
 test("repository architecture is valid", () => {
   assert.deepEqual(validateRepository(root), []);
 });

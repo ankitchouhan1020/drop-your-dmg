@@ -4,6 +4,17 @@ All notable changes to Drop Your DMG are recorded here. The format follows [Keep
 
 ## [Unreleased]
 
+### Changed
+
+- Turned the Notion contact sheet into a responsive three-up comparison with full-size preview links.
+- Labeled generated example imagery as concept previews rather than mounted Finder captures.
+
+### Fixed
+
+- Added accessible names to standalone preview SVGs and semantic headings to contact-sheet directions.
+
+## [0.1.2] - 2026-10-18
+
 ### Added
 
 - Tokenless npm releases through GitHub Actions trusted publishing.
