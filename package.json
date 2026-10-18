@@ -1,6 +1,6 @@
 {
   "name": "drop-your-dmg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An agent skill that designs and builds branded macOS drag-to-Applications DMGs.",
   "type": "module",
   "keywords": [
@@ -41,5 +41,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitchouhan1020/drop-your-dmg.git"
+  },
+  "homepage": "https://github.com/ankitchouhan1020/drop-your-dmg#readme",
+  "bugs": {
+    "url": "https://github.com/ankitchouhan1020/drop-your-dmg/issues"
   }
 }
