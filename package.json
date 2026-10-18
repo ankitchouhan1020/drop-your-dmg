@@ -1,6 +1,6 @@
 {
   "name": "drop-your-dmg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An agent skill that designs and builds branded macOS drag-to-Applications DMGs.",
   "type": "module",
   "keywords": [
