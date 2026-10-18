@@ -4,6 +4,10 @@ All notable changes to Drop Your DMG are recorded here. The format follows [Keep
 
 ## [Unreleased]
 
+### Added
+
+- Tokenless npm releases through GitHub Actions trusted publishing.
+
 ## [0.1.1] - 2026-10-18
 
 ### Changed

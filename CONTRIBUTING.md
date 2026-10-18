@@ -56,6 +56,17 @@ Shipping backgrounds must not contain `data-role="finder-item"`. Previews must c
 
 After rebuilding, `git status --short` should show only intentional changes.
 
+## Releases
+
+npm publishing uses GitHub Actions trusted publishing. Update the changelog, then create and push the version commit and tag:
+
+```sh
+npm version patch
+git push --follow-tags origin main
+```
+
+The `publish.yml` workflow verifies that the tag matches `package.json`, runs the repository checks and publishes through npm OIDC. Do not add an `NPM_TOKEN` secret.
+
 ## Pull requests
 
 - Keep one coherent change per pull request.
